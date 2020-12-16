@@ -21,7 +21,7 @@
         async function getLocation() {
             const response = await fetch(endpoint)
             const data = await response.json();
-              console.log(data);
+              console.log(data.results.sunset);
      
              return data;
         // try {
@@ -42,8 +42,8 @@
         // }
 
         async function displayResults() {
-            const shots = await getLocation();
-            // console.log(shots);
+            const dayNight = await getLocation();
+            console.log(data.results.sunset);
 
         // quote = document.querySelector('#time').value;
         // let locationInfo = document.querySelector('#time');
