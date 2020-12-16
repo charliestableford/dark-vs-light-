@@ -6,6 +6,7 @@
     <title>Test</title>
 </head>
 <body>
+    <div id="time"></div>
     <script>
         //first way
         console.log('in day and night');
@@ -15,6 +16,41 @@
         console.log(time);
 
         //second way
+        const endpoint = 'https://api.sunrise-sunset.org/json?lat=49.2827&lng=-123.1207&date=today';
+
+        async function getLocation() {
+            const response = await fetch(endpoint)
+            const data = await response.json();
+              console.log(data);
+     
+             return data;
+        // try {
+        //     const response = await fetch(endpoint)
+        //     if (!response.ok) {
+        //     throw Error(response.statusText);
+        //     }
+        //     const json = await response.json();
+        //     displayResults(json.message);
+        //     console.log(json);
+        // } catch {
+        //     console.log('Call failed');
+        // } 
+        }
+
+        // async function displayRes(data){
+        //     console.log(`This is the ${data}`)
+        // }
+
+        async function displayResults() {
+            const shots = await getLocation();
+            // console.log(shots);
+
+        // quote = document.querySelector('#time').value;
+        // let locationInfo = document.querySelector('#time');
+        // locationInfo.innerHTML = quote;
+        }
+
+
 
         
     
