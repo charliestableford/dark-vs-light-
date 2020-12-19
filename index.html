@@ -20,14 +20,14 @@
         console.log('in day and night');
         let sunriseHTML = document.querySelector(".sunrise");
         let sunsetHTML = document.querySelector(".sunset");
-        // console.log(sunrise);
-        let sunriseShow = sunriseHTML.style.visibility ? "hidden" : "visible";
-        let sunsetShow = sunsetHTML.style.visibility ? "hidden" : "visible";
+        // // console.log(sunrise);
+        // let sunriseShow = sunriseHTML.style.display ? "none" : "block";
+        // let sunsetShow = sunsetHTML.style.display ? "block" : "none";
 
         let current = new Date();
 
         let time = (current.getHours()>=17) ? "Evening" : "Daytime";
-        console.log(time);
+        console.log(`this is the time: ${time}`);
 
         //second way
         const endpoint = 'https://api.sunrise-sunset.org/json?lat=53.7267&lng=-127.6476&date=today';
@@ -40,8 +40,7 @@
               console.log(`sunset: ${sunset}`);
               console.log(`sunrise: ${sunrise}`);
 
-            let img = (time === "Evening") ? `${sunriseShow}` : `${sunsetShow}`;
-            console.log(img);
+            let img = (time === "Evening") ? sunsetHTML = sunsetHTML.style.display = "block" : sunriseHTML = sunriseHTML.style.display = "none"  ;
      
              return data;
       }
