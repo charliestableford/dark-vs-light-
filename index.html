@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <style>
+        .sunset, .sunrise{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="time">
-        <div class="sunrise"></div>
-        <div class="sunset"></div>
+        <div class="sunrise">Im the sunrise</div>
+        <div class="sunset">Im the sunset</div>
     </div>
     <script>
         //first way
         console.log('in day and night');
+        let sunriseHTML = document.querySelector(".sunrise");
+        let sunsetHTML = document.querySelector(".sunset");
+        // console.log(sunrise);
+        let sunriseShow = sunriseHTML.style.visibility ? "hidden" : "visible";
+        let sunsetShow = sunsetHTML.style.visibility ? "hidden" : "visible";
+
         let current = new Date();
 
         let time = (current.getHours()>=17) ? "Evening" : "Daytime";
@@ -28,12 +39,15 @@
             let sunrise = data.results.sunrise;
               console.log(`sunset: ${sunset}`);
               console.log(`sunrise: ${sunrise}`);
+
+            let img = (time === "Evening") ? `${sunriseShow}` : `${sunsetShow}`;
+            console.log(img);
      
              return data;
       }
 
-        async function displayResults() {
-
+        async function displayResults(sunrise, sunset) {
+            
         // quote = document.querySelector('#time').value;
         // let locationInfo = document.querySelector('#time');
         // locationInfo.innerHTML = quote;
