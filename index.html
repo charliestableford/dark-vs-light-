@@ -8,16 +8,18 @@
         .sunset, .sunrise{
             display: none;
         }
+
     </style>
 </head>
 <body>
     <div id="time">
         <div class="sunrise">Im the sunrise</div>
-        <div class="sunset">Im the sunset</div>
+        <div class="sunset"><img src="imgs/fb.png"/></div>
     </div>
     <script>
         //first way
         console.log('in day and night');
+        let body = document.querySelector("body");
         let sunriseHTML = document.querySelector(".sunrise");
         let sunsetHTML = document.querySelector(".sunset");
         // // console.log(sunrise);
@@ -39,7 +41,8 @@
             let sunrise = data.results.sunrise;
               console.log(`sunset: ${sunset}`);
               console.log(`sunrise: ${sunrise}`);
-
+            
+            // if time is evening then set to sunset, else it is sunrise
             let img = (time === "Evening") ? sunsetHTML = sunsetHTML.style.display = "block" : sunriseHTML = sunriseHTML.style.display = "none"  ;
      
              return data;
